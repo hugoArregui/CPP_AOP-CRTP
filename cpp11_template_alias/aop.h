@@ -54,11 +54,11 @@ private:
         using Type = T<E>;
     };
 
-    template<template <class> class A1, template <class> class ... Aspects>
-    struct Apply<A1, Aspects...>
+    template<template <class> class A1, template <class> class A2, template <class> class ... Aspects>
+    struct Apply<A1, A2, Aspects...>
     {
         template <class T>
-        using Type = A1<typename Apply<Aspects...>::template Type<T>>;
+        using Type = A1<typename Apply<A2, Aspects...>::template Type<T>>;
     };
 
 public:

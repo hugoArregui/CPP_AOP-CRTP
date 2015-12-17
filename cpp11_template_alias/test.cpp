@@ -42,7 +42,7 @@ struct Number
     {
     public:
         typedef _UnderlyingType UnderlyingType;
-        typedef A<Number::Type<A>> FullType;
+        typedef A<typename Number::template Type<A>> FullType;
 
         Type(UnderlyingType n)
             : n(n)
